@@ -10,10 +10,14 @@ export function getProjects(): Promise<Project[]> {
   return client.fetch(groq`*[_type=="project"]{
     _id,
     _createdAt,
+
     name,
     "slug":slug.current,
     "image":image.asset->url,
+
     url,
     content
   }`);
 }
+
+export async function getProject(slug: string) {}
